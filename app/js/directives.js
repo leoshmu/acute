@@ -10,12 +10,12 @@ angular.module('myApp.directives', []).
     };
   }]);
 
-angular.module('myApp', []).
+angular.module('myApp.directives', []).
   directive('resizeable', function(){
     return {
       restrict: 'EA',
       scope: true,
-      template: '<div style="position:relative; border:solid"><div ng-transclude></div><div class="resize-bottom-edge"></div><div class="resize-right-edge"></div><div class="resize-handle-se"></div></div>',
+      templateUrl: 'partials/resize-template.html',
       replace: true,
       transclude: true,
       link: function(scope, elm, attrs){

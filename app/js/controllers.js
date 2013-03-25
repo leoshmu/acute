@@ -3,7 +3,10 @@
 /* Controllers */
 
 
-function MyCtrl1() {}
+function MyCtrl1($scope, $location) {
+
+   
+}
 MyCtrl1.$inject = [];
 
 

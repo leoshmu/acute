@@ -2,24 +2,79 @@
 <html lang="en" ng-app="myApp">
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
+  <title>ng-directing the browser</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
   <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/prettify.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
-<body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+<body data-spy="scroll" data-target=".ng-demo-sidebar">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <a class="brand" href="#">ng-directing</a>
+        <ul class="nav">
+          <li class="active"><a href="#">Resizable</a></li>          
+        </ul>
+      </div>
+    </div>  
+    <header class="jumbotron">
+  <div class="hero-unit">
+    <div class="container">
+      <h1>Resizable</h1>
+      <p>Turn content into flexible resizable boxes</p>
+    </div>    
+  </div>
+</header>
+<div class="container" ng-controller="MyCtrl1">
+  <div class="row">
+    <div class="span3 ng-demo-sidebar" >
+      <ul class="nav nav-list ng-demo-sidenav">
+        <li><a href="#basic"><i class="icon-chevron-right"></i> Basic</a></li>
+        <li><a href="#maxmin"><i class="icon-chevron-right"></i> Max/min Size</a></li>
+        <li><a href="#grid"><i class="icon-chevron-right"></i> Grid</a></li>        
+      </ul>
+    </div>
+    <div class="span9">
+      <section id="basic">
+        <div class="page-header">
+          <h1>Basic</h1>
+<pre class="prettyprint linenums">
+  &lt;div resizeable&gt;&lt;p&gt;Resize Me&lt;/p&gt;&lt;/div&gt;
+</pre>
+          <div resizeable><p>Resize Me</p></div>
+        </div>
+      </section>
+      <section id="maxmin">
+        <div class="page-header">
+          <h1>Max/min Size</h1>
+<pre class="prettyprint linenums">
+  &lt;div resizeable max-width="" max-height="" min-width="" min-height="" &gt;&lt;p&gt;Resize Me&lt;/p&gt;&lt;/div&gt;
+</pre>
+          <p>Passing in attributes to the directive will set the limits</p>
+        </div>
+      </section>
+      <section id="grid">
+        <div class="page-header">
+          <h1>Basic</h1>
+          <p>something will go here too</p>
+        </div>
+      </section>      
+    </div>
+  </div>
+</div>
 
-  <div ng-view></div>
 
-  <div>Angular seed app: v<span app-version></span></div>
-  <div resizeable><p>Resize Me</p></div>
+
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
   -->
   <script src="lib/jquery-1.9.1.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+  <script src="lib/underscore-min.js"></script>
   <script src="lib/angular/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
