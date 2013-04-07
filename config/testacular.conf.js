@@ -1,14 +1,23 @@
-basePath = '../';
+basePath = '../app/';
 
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  'app/lib/angular/angular.js',
-  'app/lib/angular/angular-*.js',
-  'test/lib/angular/angular-mocks.js',
-  'app/js/**/*.js',
-  'test/unit/**/*.js'
+  // 'css/*.*',
+  'lib/jquery-1.9.1.min.js',
+  'lib/underscore-min.js',
+  'lib/angular/angular.js',
+  'lib/angular/angular-*.js',
+  '../test/lib/angular/angular-mocks.js',
+  'js/**/*.js',
+  '../test/unit/**/*.js',
+  'partials/*.html'
 ];
+
+// add partials to templateCache
+preprocessors = {
+  'partials/*.html':'html2js'
+}
 
 autoWatch = true;
 
