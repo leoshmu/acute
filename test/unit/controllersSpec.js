@@ -10,9 +10,9 @@ describe('MyCtrl1', function(){
   });
 
 
-  it('should ....', function() {
-    //spec body
-  });
+  // it('should ....', function() {
+  //   //spec body
+  // });
 });
 
 
@@ -25,7 +25,7 @@ describe('MyCtrl2', function(){
   });
 
 
-  it('should ....', function() {
-    //spec body
-  });
+  // it('should ....', function() {
+  //   //spec body
+  // });
 });

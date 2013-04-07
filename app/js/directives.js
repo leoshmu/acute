@@ -14,14 +14,18 @@ angular.module('myApp.directives', []).
   directive('resizeable', function($compile){
     var resize = function (scope, elm, ev){
           if(scope.y_resizing){
+
             var min_height = 0;
             var delta_height = (scope.resize_top ? -1 : 1) * (ev.pageY-scope.start_position.ypos);
             var new_height = scope.start_size.height + delta_height;
+
             var constraints_met = false;
             if(new_height > min_height){
               constraints_met =  true
+
             }
             if (constraints_met){
+
               if(scope.resize_top){
                 var new_top = ev.pageY-scope.parent_start_position.top
                 elm.css('top', new_top +'px')
@@ -69,7 +73,6 @@ angular.module('myApp.directives', []).
             scope.handle = value;
 
             // track start position and size
-            console.log(elm);
 
             scope.parent_start_position = elm.position();
             scope.start_position = {xpos: ev.pageX, ypos:ev.pageY};
@@ -89,13 +92,13 @@ angular.module('myApp.directives', []).
           }).bind('mouseup', function(ev){
             // tell the directive that we are no longer actively resizing
             // scope.start_position = {xpos: ev.pageX, ypos:ev.pageY};
-            console.log('new_start', scope.start_position);
+            // console.log('new_start', scope.start_position);
             scope.start_size = {width: elm.width(), height: elm.height()};
             scope.x_resizing = false;
             scope.y_resizing = false;
           });
         scope.$watch('handle', function(){
-          console.log('changed!');
+          // console.log('changed!');
         })
 
         })
@@ -104,6 +107,7 @@ angular.module('myApp.directives', []).
 
         $(document).bind('mousemove', function(ev){
           // if we are in resize mode and the mouse is clicked, then resize
+          // console.log('move')
           if((scope.x_resizing || scope.y_resizing) && ev.which==1){
              resize(scope, elm, ev);
           }
