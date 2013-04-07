@@ -15,16 +15,16 @@
       <div class="navbar-inner">
         <a class="brand" href="#">ng-directing</a>
         <ul class="nav">
-          <li class="active"><a href="#">Resizable</a></li>          
+          <li class="active"><a href="#">Resizable</a></li>
         </ul>
       </div>
-    </div>  
+    </div>
     <header class="jumbotron">
   <div class="hero-unit">
     <div class="container">
       <h1>Resizable</h1>
       <p>Turn content into flexible resizable boxes</p>
-    </div>    
+    </div>
   </div>
 </header>
 <div class="container" ng-controller="MyCtrl1">
@@ -33,7 +33,7 @@
       <ul class="nav nav-list ng-demo-sidenav">
         <li><a href="#basic"><i class="icon-chevron-right"></i> Basic</a></li>
         <li><a href="#maxmin"><i class="icon-chevron-right"></i> Max/min Size</a></li>
-        <li><a href="#grid"><i class="icon-chevron-right"></i> Grid</a></li>        
+        <li><a href="#grid"><i class="icon-chevron-right"></i> Grid</a></li>
       </ul>
     </div>
     <div class="span9">
@@ -41,9 +41,9 @@
         <div class="page-header">
           <h1>Basic</h1>
 <pre class="prettyprint linenums">
-  &lt;div resizeable&gt;&lt;p&gt;Resize Me&lt;/p&gt;&lt;/div&gt;
+  &lt;div resizeable handes="s, e, se, nw" &gt;&lt;p&gt;Resize Me&lt;/p&gt;&lt;/div&gt;
 </pre>
-          <div resizeable><p>Resize Me</p></div>
+          <div resizeable handles="s, sw, n, nw, ne, e, se,w"><p>Resize Me</p></div>
         </div>
       </section>
       <section id="maxmin">
@@ -60,7 +60,7 @@
           <h1>Basic</h1>
           <p>something will go here too</p>
         </div>
-      </section>      
+      </section>
     </div>
   </div>
 </div>
@@ -74,11 +74,40 @@
   <script src="lib/bootstrap.min.js"></script>
   <script src="lib/underscore-min.js"></script>
   <script src="lib/angular/angular.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/directives.js"></script>
+  <script type="text/javascript">
+    $(function() {
+
+
+      var $window = $(window);
+
+
+      $(document).ready(function($) {
+
+        // Disable certain links in docs
+        $('section [href^=#]').click(function (e) {
+          e.preventDefault();
+        });
+
+        // Sidebar
+        // var $sidenav = $('.bs-docs-sidenav'), offset = $sidenav.offset();
+        // $sidenav.affix({offset: {top: offset.top - ($window.width() <= 979 ? 20 : 70), bottom: 270}}).addClass('animated');
+
+      $('.ng-demo-sidenav').affix({
+            offset: {
+              top: $('.jumbotron').position().top+$('.jumbotron').height()
+            }
+      })
+        // Make code pretty
+        window.prettyPrint && window.prettyPrint();
+
+    })
+    });
+  </script>
 </body>
 </html>
